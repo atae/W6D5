@@ -1,4 +1,5 @@
 import React from "react";
+const ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 class Autocomplete extends React.Component{
   constructor(props) {
@@ -44,10 +45,12 @@ class Autocomplete extends React.Component{
         <input type="text" onChange={this.searchWords} value={this.state.query}/>
 
         <ul className="words">
+          <ReactCSSTransitionGroup transitionName = "auto" transitionEnterTimeout = {500} transitionLeaveTimeout = {500}>
           {this.state.matchWords.map(word => (
 
              <li className="ac-word" onClick={this.handleClick(word)} key={word}>{word}</li>
           ))}
+        </ReactCSSTransitionGroup>
         </ul>
       </section>
     );

@@ -17,8 +17,9 @@ class Tabs extends React.Component {
           {
             this.props.tabs.map((tab, idx) => (
             <li key={tab.title}>
-              <h1 className = "tab-header" onClick={() =>
-                  this.selectArticle(idx)}>{tab.title}</h1>
+              <h1 className = {idx === this.state.index ? "selected tab-header": "tab-header"} onClick={() =>
+                  this.selectArticle(idx)} >
+                  {tab.title}</h1>
             </li>
           ))
         }
